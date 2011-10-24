@@ -54,9 +54,3 @@ pgs() { # [find] [replace] [filename]
 prep() { # [pattern] [filename unless STDOUT]
     perl -nle 'print if /'"$1"'/;' $2
 }
-
-# say - append a newline to 'print'
-say() {
-    print "$1\n"
-}
-
