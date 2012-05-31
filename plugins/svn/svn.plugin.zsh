@@ -21,13 +21,13 @@ function svn_get_repo_name {
 
 function svn_get_rev_nr {
     if in_svn; then
-        svn info 2> /dev/null | sed -n s/Revision:\ //p
+        svn info 2>&-  | sed -n s/Revision:\ //p
     fi
 }
 
 function svn_dirty_choose {
     if in_svn; then
-        if svn status 2>- | grep -qE '^\s*[ACDIM!?L]' &>-; then
+        if svn status 2>&- | grep -qE '^\s*[ACDIM!?L]' >&- 2>&-; then
             echo $1
         else 
             echo $2
