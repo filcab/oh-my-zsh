@@ -6,4 +6,5 @@ if [[ $('uname') == 'Linux' ]]; then
 elif  [[ $('uname') == 'Darwin' ]]; then
 	alias st='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
 fi
+alias st='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
 alias stt='st .'
