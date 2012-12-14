@@ -23,10 +23,7 @@ function in_svn() {
 function svn_get_repo_name {
     if in_svn; then
         svn info | sed -n 's/Repository\ Root:\ .*\///p' | read SVN_ROOT
-<<<<<<< HEAD
-=======
 
->>>>>>> upstream/master
         svn info | sed -n "s/URL:\ .*$SVN_ROOT\///p"
     fi
 }
@@ -48,15 +45,10 @@ function svn_get_rev_nr {
 }
 
 function svn_dirty_choose {
-<<<<<<< HEAD
-    if in_svn; then
-        if svn status 2>&- | grep -qE '^\s*[ACDIM!?L]' >&- 2>&-; then
-=======
     if [ $(in_svn) ]; then
         svn status 2> /dev/null | grep -Eq '^\s*[ACDIM!?L]'
         if [ $pipestatus[-1] -eq 0 ]; then
             # Grep exits with 0 when "One or more lines were selected", return "dirty".
->>>>>>> upstream/master
             echo $1
         else
             # Otherwise, no lines were found, or an error occurred. Return clean.
