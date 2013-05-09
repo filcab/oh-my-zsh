@@ -51,17 +51,10 @@ function svn_get_branch_name() {
   unset _DISPLAY
 }
 
-<<<<<<< HEAD
 function svn_get_rev_nr {
     if in_svn; then
         svn info 2>&-  | sed -n s/Revision:\ //p
     fi
-=======
-function svn_get_rev_nr() {
-  if in_svn; then
-    svn info 2> /dev/null | sed -n 's/Revision:\ //p'
-  fi
->>>>>>> b34aee7f76c4cd37e643a330409ac580776b3837
 }
 
 function svn_dirty_choose() {
